@@ -73,8 +73,8 @@ rm -rf ./*udpxy*
 echo "Clean complete"
 
 # Aurora 主题
-UPDATE_PACKAGE "luci-theme-aurora" "eamonxg/luci-theme-aurora" "main"
-UPDATE_PACKAGE "luci-theme-aurora" "eamonxg/luci-app-aurora-config" "main"
+UPDATE_PACKAGE "luci-theme-aurora" "eamonxg/luci-theme-aurora" "master"
+UPDATE_PACKAGE "luci-theme-aurora-config" "eamonxg/luci-app-aurora-config" "master"
 
 # EasyTier 异地组网
 UPDATE_PACKAGE "luci-app-easytier" "EasyTier/luci-app-easytier" "main"
