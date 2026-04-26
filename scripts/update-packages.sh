@@ -72,25 +72,22 @@ rm -rf ./*v2ray*
 rm -rf ./*udpxy*
 echo "Clean complete"
 
-# Argon 主题（仅保留这个）
-UPDATE_PACKAGE "luci-theme-argon" "jerrykuku/luci-theme-argon" "master"
-UPDATE_PACKAGE "luci-app-argon-config" "jerrykuku/luci-app-argon-config" "master"
-
 # Aurora 主题
-UPDATE_PACKAGE "luci-theme-aurora" "zxlhhyccc/luci-theme-aurora" "main"
+UPDATE_PACKAGE "luci-theme-aurora" "eamonxg/luci-theme-aurora" "main"
+UPDATE_PACKAGE "luci-theme-aurora" "eamonxg/luci-app-aurora-config" "main"
 
 # EasyTier 异地组网
 UPDATE_PACKAGE "luci-app-easytier" "EasyTier/luci-app-easytier" "main"
 
 
-# 修改 LuCI 默认主题为 Argon
+# 修改 LuCI 默认主题为 aurora
 echo "=========================================="
-echo "Setting default LuCI theme to argon..."
+echo "Setting default LuCI theme to aurora..."
 echo "=========================================="
 COLLECTION_MAKEFILES=$(find ../feeds/luci/collections/ -type f -name "Makefile" 2>/dev/null)
 if [ -n "$COLLECTION_MAKEFILES" ]; then
-	sed -i "s/luci-theme-bootstrap/luci-theme-argon/g" $COLLECTION_MAKEFILES
-	echo "Done setting default LuCI theme to argon"
+	sed -i "s/luci-theme-bootstrap/luci-theme-aurora/g" $COLLECTION_MAKEFILES
+	echo "Done setting default LuCI theme to aurora"
 else
 	echo "WARNING: No LuCI collection Makefile found, skip theme default patch"
 fi
