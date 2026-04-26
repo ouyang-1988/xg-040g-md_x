@@ -76,6 +76,13 @@ echo "Clean complete"
 UPDATE_PACKAGE "luci-theme-argon" "jerrykuku/luci-theme-argon" "master"
 UPDATE_PACKAGE "luci-app-argon-config" "jerrykuku/luci-app-argon-config" "master"
 
+# Aurora 主题
+UPDATE_PACKAGE "luci-theme-aurora" "zxlhhyccc/luci-theme-aurora" "main"
+
+# EasyTier 异地组网
+UPDATE_PACKAGE "luci-app-easytier" "EasyTier/luci-app-easytier" "main"
+
+
 # 修改 LuCI 默认主题为 Argon
 echo "=========================================="
 echo "Setting default LuCI theme to argon..."
