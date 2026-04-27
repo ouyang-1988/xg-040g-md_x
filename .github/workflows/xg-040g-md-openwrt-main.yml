@@ -126,6 +126,21 @@ jobs:
           ./scripts/feeds update -a
           ./scripts/feeds install -a -f
 
+
+      - name: Apply FudanMicro Flash Patch
+        run: |
+          # 1. 自动识别内核版本（确保路径 100% 正确）
+          KERNEL_VERSION=$(grep 'LINUX_VERSION:=' openwrt/include/kernel-version.mk | cut -d'=' -f2 | cut -d'.' -f1-2)
+          
+          # 2. 确定 airoha 平台的补丁存放位置
+          PATCH_DIR="openwrt/target/linux/airoha/patches-${KERNEL_VERSION}"
+          mkdir -p "$PATCH_DIR"
+          
+          # 3. 只拷贝这一个修复闪存的补丁文件
+          cp -v patch/499-mtd-spinand-FudanMicro-FM25G02B.patch "$PATCH_DIR/"
+          
+          echo "✅ FudanMicro driver patch has been moved to $PATCH_DIR"
+
       - name: Install third-party packages (homeproxy, passwall)
         working-directory: ./openwrt/package
         run: |
